@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">AndroidMegaSample</string>
+    <string name="app_name">Android Mega Sample</string>
+    <string name="search">Search</string>
+    <string name="appears_in">Appears In:</string>
+    <string name="searching_title_text">Searching For:</string>
 </resources>

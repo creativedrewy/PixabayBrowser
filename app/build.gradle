@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -14,8 +15,20 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            buildConfigField "String", "SWAPI_BASE_URL", "\"https://swapi.co/api/\""
+            buildConfigField "String", "OMDB_BASE_URL", "\"http://www.omdbapi.com/\""
+            buildConfigField "String", "OMDB_API_KEY", "\"c43d84a0\""
+
             minifyEnabled false
+        }
+
+        release {
+            buildConfigField "String", "SWAPI_BASE_URL", "\"https://swapi.co/api/\""
+            buildConfigField "String", "OMDB_BASE_URL", "\"http://www.omdbapi.com/\""
+            buildConfigField "String", "OMDB_API_KEY", "\"c43d84a0\""
+
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
