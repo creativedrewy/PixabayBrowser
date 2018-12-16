@@ -26,6 +26,13 @@
         <activity
             android:name=".starwarsbrowser.activities.PersonDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".pixabaybrowser.activities.BrowseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".pixabaybrowser.activities.VideoPlayerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

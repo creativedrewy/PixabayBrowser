@@ -3,7 +3,7 @@ package com.creativedrewy.androidmegasample
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.creativedrewy.androidmegasample.starwarsbrowser.activities.PeopleListActivity
+import com.creativedrewy.androidmegasample.pixabaybrowser.activities.BrowseActivity
 import kotlinx.android.synthetic.main.activity_landing.*
 
 class LandingActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ class LandingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_landing)
 
         test_buttoni.setOnClickListener {
-            startActivity(Intent(this, PeopleListActivity::class.java))
+            startActivity(Intent(this, BrowseActivity::class.java))
         }
     }
 }
