@@ -1,11 +1,11 @@
 package com.creativedrewy.androidmegasample.pixabaybrowser.activities
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.Menu
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAdapter
@@ -36,7 +36,11 @@ class PixabaySearchActivity : AppCompatActivity() {
         images_list_recyclerview.adapter = adapter
 
         browseViewModel = ViewModelProviders.of(this, browseViewModelFactory).get(BrowseVideosViewModel::class.java)
-        performSearch(defaultSearchTerm)
+        browseViewModel.videoPreviews.observe(this, Observer {
+            adapter.submitList(it)
+        })
+
+        browseViewModel.loadVideoPreviews(defaultSearchTerm)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,7 +49,7 @@ class PixabaySearchActivity : AppCompatActivity() {
         (menu?.findItem(R.id.action_search)?.actionView as SearchView?)
                 ?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { performSearch(it) }
+                query?.let { browseViewModel.loadVideoPreviews(it) }
                 return true
             }
 
@@ -55,14 +59,5 @@ class PixabaySearchActivity : AppCompatActivity() {
         })
 
         return super.onCreateOptionsMenu(menu)
-    }
-
-    private fun performSearch(term: String) {
-        browseViewModel.loadVideoPreviews(term)
-                .subscribe({
-                    adapter.submitList(it)
-                }, {
-                    Log.e("Andrew", "There was an error loading unfortunately", it)
-                })
     }
 }
