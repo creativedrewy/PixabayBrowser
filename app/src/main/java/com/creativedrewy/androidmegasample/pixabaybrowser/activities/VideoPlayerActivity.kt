@@ -7,6 +7,12 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreviewVO
+import com.google.android.exoplayer2.DefaultLoadControl
+import com.google.android.exoplayer2.DefaultRenderersFactory
+import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.source.ExtractorMediaSource
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.content_video_player.*
 
@@ -24,7 +30,8 @@ class VideoPlayerActivity : AppCompatActivity() {
         (intent.getSerializableExtra(EXTRA_VIDEO_DATA) as VideoPreviewVO?)?.let { video ->
             val exoplayer = ExoPlayerFactory.newSimpleInstance(
                     DefaultRenderersFactory(this),
-                    DefaultTrackSelector(), DefaultLoadControl())
+                    DefaultTrackSelector(), DefaultLoadControl()
+            )
 
             val mediaSource = ExtractorMediaSource.Factory(DefaultHttpDataSourceFactory("pixabay-app"))
                     .createMediaSource(Uri.parse(video.videoUrl))
