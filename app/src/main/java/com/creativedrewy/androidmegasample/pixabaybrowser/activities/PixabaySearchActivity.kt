@@ -10,7 +10,9 @@ import android.view.Menu
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAdapter
 import com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels.BrowseVideosViewModel
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_browse.*
+import javax.inject.Inject
 
 class PixabaySearchActivity : AppCompatActivity() {
 
@@ -19,9 +21,13 @@ class PixabaySearchActivity : AppCompatActivity() {
         ListVideosAdapter()
     }
 
+    @Inject
+    lateinit var browseViewModelFactory: BrowseVideosViewModel.Factory
+
     private lateinit var browseViewModel: BrowseVideosViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pixabay)
         setSupportActionBar(browse_toolbar)
@@ -29,7 +35,7 @@ class PixabaySearchActivity : AppCompatActivity() {
         images_list_recyclerview.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.browse_column_count))
         images_list_recyclerview.adapter = adapter
 
-        browseViewModel = ViewModelProviders.of(this).get(BrowseVideosViewModel::class.java)
+        browseViewModel = ViewModelProviders.of(this, browseViewModelFactory).get(BrowseVideosViewModel::class.java)
         performSearch(defaultSearchTerm)
     }
 

@@ -3,6 +3,8 @@ package com.creativedrewy.androidmegasample.di
 import android.content.Context
 import com.creativedrewy.androidmegasample.App
 import com.creativedrewy.androidmegasample.BuildConfig
+import com.creativedrewy.androidmegasample.pixabaybrowser.endpoints.PixabayEndpoints
+import com.creativedrewy.androidmegasample.pixabaybrowser.repositories.VideoLoadRepository
 import com.creativedrewy.androidmegasample.starwarsbrowser.endpoints.OmdbEndpoints
 import com.creativedrewy.androidmegasample.starwarsbrowser.endpoints.SwapiEndpoints
 import com.creativedrewy.androidmegasample.starwarsbrowser.repositories.OmdbLoadRepository
@@ -60,5 +62,25 @@ class AppModule {
     @Provides
     fun provideOmdbLoadRepository(endpoint: OmdbEndpoints): OmdbLoadRepository {
         return OmdbLoadRepository(endpoint)
+    }
+
+    @Provides
+    @Named("pixabay")
+    fun provideRetrofitPixabay(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.PIXABAY_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+    }
+
+    @Provides
+    fun providePixabayEndpoints(@Named("pixabay") retrofit: Retrofit): PixabayEndpoints {
+        return retrofit.create(PixabayEndpoints::class.java)
+    }
+
+    @Provides
+    fun provideVideoLoadRepository(endpoints: PixabayEndpoints): VideoLoadRepository {
+        return VideoLoadRepository(endpoints)
     }
 }
