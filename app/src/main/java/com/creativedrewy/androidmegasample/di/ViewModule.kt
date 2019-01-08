@@ -1,7 +1,7 @@
 package com.creativedrewy.androidmegasample.di
 
-import com.creativedrewy.androidmegasample.starwarsbrowser.activities.PeopleListActivity
 import com.creativedrewy.androidmegasample.starwarsbrowser.activities.PersonDetailsActivity
+import com.creativedrewy.androidmegasample.starwarsbrowser.activities.StarWarsPeopleListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,7 +9,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ViewModule {
 
     @ContributesAndroidInjector
-    abstract fun bindPeopleListActivity(): PeopleListActivity
+    abstract fun bindPeopleListActivity(): StarWarsPeopleListActivity
 
     @ContributesAndroidInjector
     abstract fun bindPersonDetailsActivity(): PersonDetailsActivity

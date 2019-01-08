@@ -15,7 +15,7 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_browse.*
 import javax.inject.Inject
 
-class PeopleListActivity : AppCompatActivity() {
+class StarWarsPeopleListActivity : AppCompatActivity() {
 
     private val defaultSearchTerm = "Luke"
     private val adapter: ListPeopleAdapter by lazy { ListPeopleAdapter() }

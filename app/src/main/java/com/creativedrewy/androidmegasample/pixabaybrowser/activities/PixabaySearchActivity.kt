@@ -12,7 +12,7 @@ import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAda
 import com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels.BrowseVideosViewModel
 import kotlinx.android.synthetic.main.activity_browse.*
 
-class BrowseActivity : AppCompatActivity() {
+class PixabaySearchActivity : AppCompatActivity() {
 
     private val defaultSearchTerm = "dogs"
     private val adapter: ListVideosAdapter by lazy {

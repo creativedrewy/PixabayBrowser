@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".starwarsbrowser.activities.PeopleListActivity"
+            android:name=".starwarsbrowser.activities.StarWarsPeopleListActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".starwarsbrowser.activities.PersonDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".pixabaybrowser.activities.BrowseActivity"
+            android:name=".pixabaybrowser.activities.PixabaySearchActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
