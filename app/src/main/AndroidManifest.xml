@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.creativedrewy.androidmegasample">
+          package="com.creativedrewy.sample">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:name=".App"
+            android:name="com.creativedrewy.sample.App"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -13,7 +13,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-            android:name=".pixabaybrowser.activities.PixabaySearchActivity"
+            android:name="com.creativedrewy.sample.pixabaybrowser.activities.PixabaySearchActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pixabaybrowser.activities.VideoPlayerActivity"
+            android:name="com.creativedrewy.sample.pixabaybrowser.activities.VideoPlayerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

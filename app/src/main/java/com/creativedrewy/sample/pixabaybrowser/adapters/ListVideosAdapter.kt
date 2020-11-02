@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.adapters
+package com.creativedrewy.sample.pixabaybrowser.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.creativedrewy.androidmegasample.R
-import com.creativedrewy.androidmegasample.pixabaybrowser.activities.VideoPlayerActivity
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
+import com.creativedrewy.sample.R
+import com.creativedrewy.sample.pixabaybrowser.activities.VideoPlayerActivity
+import com.creativedrewy.sample.pixabaybrowser.datamodels.VideoPreview
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_video_preview.view.*
 

@@ -1,11 +1,11 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels
+package com.creativedrewy.sample.pixabaybrowser.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
-import com.creativedrewy.androidmegasample.pixabaybrowser.repositories.VideoLoadRepository
+import com.creativedrewy.sample.pixabaybrowser.datamodels.VideoPreview
+import com.creativedrewy.sample.pixabaybrowser.repositories.VideoLoadRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject

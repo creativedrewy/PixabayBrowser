@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.activities
+package com.creativedrewy.sample.pixabaybrowser.activities
 
 import android.os.Bundle
 import android.view.Menu
@@ -7,9 +7,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.creativedrewy.androidmegasample.R
-import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAdapter
-import com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels.BrowseVideosViewModel
+import com.creativedrewy.sample.R
+import com.creativedrewy.sample.pixabaybrowser.adapters.ListVideosAdapter
+import com.creativedrewy.sample.pixabaybrowser.viewmodels.BrowseVideosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_browse.*
 import javax.inject.Inject

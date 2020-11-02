@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.datamodels
+package com.creativedrewy.sample.pixabaybrowser.datamodels
 
 data class Hits(val hits: List<VideoDetails>)
 

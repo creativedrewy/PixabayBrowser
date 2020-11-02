@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.datamodels
+package com.creativedrewy.sample.pixabaybrowser.datamodels
 
 import java.io.Serializable
 

@@ -1,12 +1,12 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.activities
+package com.creativedrewy.sample.pixabaybrowser.activities
 
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.creativedrewy.androidmegasample.R
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
+import com.creativedrewy.sample.R
+import com.creativedrewy.sample.pixabaybrowser.datamodels.VideoPreview
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory

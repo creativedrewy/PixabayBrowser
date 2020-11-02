@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample
+package com.creativedrewy.sample
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

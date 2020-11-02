@@ -1,4 +1,4 @@
-package com.creativedrewy.androidmegasample
+package com.creativedrewy.sample
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

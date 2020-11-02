@@ -1,6 +1,6 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.endpoints
+package com.creativedrewy.sample.pixabaybrowser.endpoints
 
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.Hits
+import com.creativedrewy.sample.pixabaybrowser.datamodels.Hits
 import retrofit2.http.GET
 import retrofit2.http.Query
 

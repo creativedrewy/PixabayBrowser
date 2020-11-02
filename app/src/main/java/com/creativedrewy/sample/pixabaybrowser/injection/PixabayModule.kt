@@ -1,8 +1,8 @@
-package com.creativedrewy.androidmegasample.pixabaybrowser.injection
+package com.creativedrewy.sample.pixabaybrowser.injection
 
-import com.creativedrewy.androidmegasample.BuildConfig
-import com.creativedrewy.androidmegasample.pixabaybrowser.endpoints.PixabayEndpoints
-import com.creativedrewy.androidmegasample.pixabaybrowser.repositories.VideoLoadRepository
+import com.creativedrewy.sample.BuildConfig
+import com.creativedrewy.sample.pixabaybrowser.endpoints.PixabayEndpoints
+import com.creativedrewy.sample.pixabaybrowser.repositories.VideoLoadRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
