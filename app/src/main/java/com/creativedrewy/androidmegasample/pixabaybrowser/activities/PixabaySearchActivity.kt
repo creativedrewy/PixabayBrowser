@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAdapter
 import com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels.BrowseVideosViewModel
-import dagger.android.AndroidInjection
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_browse.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class PixabaySearchActivity : AppCompatActivity() {
 
     private val defaultSearchTerm = "dogs"
@@ -25,7 +26,6 @@ class PixabaySearchActivity : AppCompatActivity() {
     private lateinit var browseViewModel: BrowseVideosViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_pixabay)
