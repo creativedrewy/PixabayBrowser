@@ -1,12 +1,12 @@
 package com.creativedrewy.androidmegasample.pixabaybrowser.activities
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.SearchView
 import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.adapters.ListVideosAdapter
 import com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels.BrowseVideosViewModel
@@ -34,7 +34,7 @@ class PixabaySearchActivity : AppCompatActivity() {
         images_list_recyclerview.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.browse_column_count))
         images_list_recyclerview.adapter = adapter
 
-        browseViewModel = ViewModelProviders.of(this, browseViewModelFactory).get(BrowseVideosViewModel::class.java)
+        browseViewModel = ViewModelProvider(this, browseViewModelFactory).get(BrowseVideosViewModel::class.java)
         browseViewModel.viewState.observe(this, Observer { viewState ->
             viewState?.videoPreviews?.let {
                 adapter.submitList(it)

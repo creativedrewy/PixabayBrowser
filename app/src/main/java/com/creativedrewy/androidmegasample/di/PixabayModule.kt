@@ -6,19 +6,18 @@ import com.creativedrewy.androidmegasample.pixabaybrowser.repositories.VideoLoad
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 
 @Module
 class PixabayModule {
+
     @Provides
     @Named("pixabay")
     fun provideRetrofitPixabay(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.PIXABAY_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
 

@@ -1,6 +1,6 @@
 package com.creativedrewy.androidmegasample.pixabaybrowser.adapters
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
 
 class VideosDiffCallback: DiffUtil.ItemCallback<VideoPreview>() {

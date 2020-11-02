@@ -3,8 +3,8 @@ package com.creativedrewy.androidmegasample.pixabaybrowser.activities
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
 import com.google.android.exoplayer2.DefaultLoadControl

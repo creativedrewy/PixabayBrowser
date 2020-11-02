@@ -1,11 +1,12 @@
 package com.creativedrewy.androidmegasample.pixabaybrowser.adapters
 
 import android.content.Intent
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
+
+import androidx.recyclerview.widget.RecyclerView
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.activities.VideoPlayerActivity
 import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview

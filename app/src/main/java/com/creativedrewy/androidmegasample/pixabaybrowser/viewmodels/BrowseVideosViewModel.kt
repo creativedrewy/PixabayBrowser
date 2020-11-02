@@ -1,14 +1,13 @@
 package com.creativedrewy.androidmegasample.pixabaybrowser.viewmodels
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.util.Log
-import com.creativedrewy.androidmegasample.common.BaseViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
 import com.creativedrewy.androidmegasample.pixabaybrowser.repositories.VideoLoadRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class BrowseViewState(
@@ -17,23 +16,16 @@ data class BrowseViewState(
 
 class BrowseVideosViewModel(
     private val repository: VideoLoadRepository
-): BaseViewModel() {
+): ViewModel() {
 
     val viewState: MutableLiveData<BrowseViewState> = MutableLiveData()
 
     fun loadVideoPreviews(searchTerm: String) {
-        performLoadOperation {
-            repository.loadVideos(searchTerm)
-                .map { result ->
-                    result.hits.map { VideoPreview(it.picture_id, it.videos.medium.url) }
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    viewState.value = BrowseViewState(it)
-                }, {
-                    Log.e("Andrew", "Thesre was an error loading unfortunately", it)
-                })
+        viewModelScope.launch(Dispatchers.IO) {
+            val loadedVideos = repository.loadVideos(searchTerm)
+
+            val result = loadedVideos.hits.map { VideoPreview(it.picture_id, it.videos.medium.url) }
+            viewState.postValue(BrowseViewState(result))
         }
     }
 
