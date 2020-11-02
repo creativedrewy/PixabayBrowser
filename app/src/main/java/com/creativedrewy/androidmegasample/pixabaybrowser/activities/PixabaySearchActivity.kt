@@ -17,9 +17,7 @@ import javax.inject.Inject
 class PixabaySearchActivity : AppCompatActivity() {
 
     private val defaultSearchTerm = "dogs"
-    private val adapter: ListVideosAdapter by lazy {
-        ListVideosAdapter()
-    }
+    private val adapter: ListVideosAdapter by lazy { ListVideosAdapter() }
 
     @Inject
     lateinit var browseViewModelFactory: BrowseVideosViewModel.Factory
@@ -37,8 +35,10 @@ class PixabaySearchActivity : AppCompatActivity() {
         images_list_recyclerview.adapter = adapter
 
         browseViewModel = ViewModelProviders.of(this, browseViewModelFactory).get(BrowseVideosViewModel::class.java)
-        browseViewModel.videoPreviews.observe(this, Observer {
-            adapter.submitList(it)
+        browseViewModel.viewState.observe(this, Observer { viewState ->
+            viewState?.videoPreviews?.let {
+                adapter.submitList(it)
+            }
         })
 
         browseViewModel.loadVideoPreviews(defaultSearchTerm)
@@ -49,6 +49,7 @@ class PixabaySearchActivity : AppCompatActivity() {
 
         (menu?.findItem(R.id.action_search)?.actionView as SearchView?)
                 ?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let { browseViewModel.loadVideoPreviews(it) }
                 return true

@@ -11,11 +11,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
+data class BrowseViewState(
+    val videoPreviews: List<VideoPreview> = listOf()
+)
+
 class BrowseVideosViewModel(
     private val repository: VideoLoadRepository
 ): BaseViewModel() {
 
-    val videoPreviews: MutableLiveData<List<VideoPreview>> = MutableLiveData()
+    val viewState: MutableLiveData<BrowseViewState> = MutableLiveData()
 
     fun loadVideoPreviews(searchTerm: String) {
         performLoadOperation {
@@ -26,9 +30,9 @@ class BrowseVideosViewModel(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    videoPreviews.value = it
+                    viewState.value = BrowseViewState(it)
                 }, {
-                    Log.e("Andrew", "There was an error loading unfortunately", it)
+                    Log.e("Andrew", "Thesre was an error loading unfortunately", it)
                 })
         }
     }
