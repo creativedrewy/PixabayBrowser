@@ -10,7 +10,6 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
     AppModule::class,
-    StarWarsModule::class,
     PixabayModule::class,
     ViewModule::class
 ])
