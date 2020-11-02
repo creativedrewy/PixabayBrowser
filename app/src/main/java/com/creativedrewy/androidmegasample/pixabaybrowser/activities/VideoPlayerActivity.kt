@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.creativedrewy.androidmegasample.R
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreviewVO
+import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -27,7 +27,7 @@ class VideoPlayerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_video_player)
         setSupportActionBar(toolbar)
 
-        (intent.getSerializableExtra(EXTRA_VIDEO_DATA) as VideoPreviewVO?)?.let { video ->
+        (intent.getSerializableExtra(EXTRA_VIDEO_DATA) as VideoPreview?)?.let { video ->
             val exoplayer = ExoPlayerFactory.newSimpleInstance(
                     DefaultRenderersFactory(this),
                     DefaultTrackSelector(), DefaultLoadControl()

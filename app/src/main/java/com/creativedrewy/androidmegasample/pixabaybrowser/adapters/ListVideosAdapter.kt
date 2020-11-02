@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.creativedrewy.androidmegasample.R
 import com.creativedrewy.androidmegasample.pixabaybrowser.activities.VideoPlayerActivity
-import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreviewVO
+import com.creativedrewy.androidmegasample.pixabaybrowser.datamodels.VideoPreview
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_video_preview.view.*
 
-class ListVideosAdapter: ListAdapter<VideoPreviewVO, ListVideosAdapter.ViewHolder>(VideosDiffCallback()) {
+class ListVideosAdapter: ListAdapter<VideoPreview, ListVideosAdapter.ViewHolder>(VideosDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_video_preview, parent, false))
@@ -23,7 +23,7 @@ class ListVideosAdapter: ListAdapter<VideoPreviewVO, ListVideosAdapter.ViewHolde
     }
 
     class ViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        fun bind(video: VideoPreviewVO) {
+        fun bind(video: VideoPreview) {
             view.setOnClickListener {
                 view.context.startActivity(Intent(view.context, VideoPlayerActivity::class.java)
                         .apply {
